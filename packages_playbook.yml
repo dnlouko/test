@@ -13,6 +13,11 @@
       command: dpkg-query -l 'zoom'
       register: zoom_check
       changed_when: false
+    - name: Import Zoom Key
+      rpm_key:
+        key: https://zoom.us/linux/download/pubkey
+        fingerprint: 3960 60CA DD8A 7522 0BFC B369 B903 BF18 61A7 C71D
+        # Instructions on https://zoom.us/download?os=linux
     - name: Install Deb Zoom package from URL
       apt:
         deb: https://zoom.us/client/5.4.53391.1108/zoom_i386.deb
