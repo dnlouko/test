@@ -1,5 +1,7 @@
 ---
-- name: Install the package {{ pacotinho }}
-  apt:
-    name: {{ pacotinho }}
+- name: Playbook de teste AWX
+  tasks:
+  - name: Install the package {{ pacotinho }}
+    apt:
+      name: {{ pacotinho }}
 ...
