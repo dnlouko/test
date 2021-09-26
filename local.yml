@@ -1,5 +1,6 @@
 ---
 - name: Playbook de teste AWX
+  hosts: ubuntu
   tasks:
   - name: Install the package {{ pacotinho }}
     apt:
