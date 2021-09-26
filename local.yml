@@ -2,7 +2,8 @@
 - name: Playbook de teste AWX
   hosts: ubuntu
   tasks:
-  - name: Install the package {{ pacotinho }}
+  - name: Update all packages to their latest version
     apt:
-      name: "{{ pacotinho }}"
+      name: "*"
+      state: latest
 ...
