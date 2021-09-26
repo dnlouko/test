@@ -1,6 +1,7 @@
 ---
 - name: Playbook de teste AWX
   hosts: ubuntu
+  become: yes
   tasks:
   - name: remove package {{ pacotinho }}
     apt:
