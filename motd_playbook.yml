@@ -1,0 +1,26 @@
+---
+- name: Prepare Ubuntu
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Insert the Customization
+    blockinfile:
+      path: /etc/update-motd.d/10-help-text
+      marker: "# {mark} ANSIBLE MANAGED BLOCK"
+      insertafter: "#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA."
+      block: |
+        printf "    ______   ______   _______  _        _______  _______  \n"
+        printf "   (  __  \ (  ___ \ (  ____ \( (    /|(  ___  )(  ____ \ \n"
+        printf "   | (  \  )| (   ) )| (    \/|  \  ( || (   ) || (    \/ \n"
+        printf "   | |   ) || (__/ / | (__    |   \ | || (___) || (_____  \n"
+        printf "   | |   | ||  __ (  |  __)   | (\ \) ||  ___  |(_____  ) \n"
+        printf "   | |   ) || (  \ \ | (      | | \   || (   ) |      ) | \n"
+        printf "   | (__/  )| )___) )| (____/\| )  \  || )   ( |/\____) | \n"
+        printf "   (______/ |/ \___/ (_______/|/    )_)|/     \|\_______) \n"
+        printf "\n"
+  - name: Replace the default Last Lines
+    replace:
+      path: /etc/update-motd.d/10-help-text
+      after: "# END ANSIBLE MANAGED BLOCK"
+      regexp: '^printf +'
+      replace: '# printf '
