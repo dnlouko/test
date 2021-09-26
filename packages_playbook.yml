@@ -1,0 +1,24 @@
+---
+- name: Prepare Ubuntu
+  hosts: localhost
+  become: yes
+  tasks: 
+    - name: Install the packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+      "{{ my_packages }}"
+    - name: Check If zoom is installed
+      command: dpkg-query -l 'zoom'
+      register: zoom_check
+      changed_when: false
+    - name: Install Deb Zoom package from URL
+      apt:
+        deb: https://zoom.us/client/5.4.53391.1108/zoom_i386.deb
+      when: zoom_check is failed
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+...
