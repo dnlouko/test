@@ -6,5 +6,9 @@
   - name: remove package {{ pacotinho }}
     apt:
       name: "{{ pacotinho }}"
-      state: absent
+      state: latest
+  - name: Update all packages to their latest version
+    apt:
+      name: "*"
+      state: latest
 ...
