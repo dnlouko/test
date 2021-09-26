@@ -1,0 +1,12 @@
+
+---
+- name: Configure Firewall
+  hosts: localhost
+  become: yes
+  tasks: 
+    - name: Setup firewall rule for SSH
+      ufw:
+        rule: limit
+        name: OpenSSH
+        state: enabled
+...
