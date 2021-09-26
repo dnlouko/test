@@ -4,5 +4,5 @@
   tasks:
   - name: Install the package {{ pacotinho }}
     apt:
-      name: {{ pacotinho }}
+      name: "{{ pacotinho }}"
 ...
