@@ -1,2 +1,3 @@
-- name: Example from an Ansible Playbook
-  ansible.builtin.ping:
+- name: Install the package {{ pacotinho }}
+  apt:
+    name: {{ pacotinho }}
