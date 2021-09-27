@@ -3,10 +3,10 @@
   hosts: ubuntu
   become: yes
   collections:
-  - name: community.general
+  - community.general
   tasks:
   - name: Setup firewall rule for SSH
-    ufw:
+    community.general.ufw:
       rule: limit
       name: OpenSSH
       state: enabled
