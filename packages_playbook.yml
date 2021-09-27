@@ -1,6 +1,6 @@
 ---
 - name: Prepare Ubuntu
-  hosts: localhost
+  hosts: ubuntu
   become: yes
   tasks: 
     - name: Install the packages
@@ -8,7 +8,7 @@
         name: "{{ item }}"
         state: present
       loop:
-      "{{ my_packages }}"
+        "{{ my_packages }}"
     - name: Check If zoom is installed
       command: dpkg-query -l 'zoom'
       register: zoom_check
