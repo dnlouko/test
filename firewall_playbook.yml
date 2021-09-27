@@ -2,9 +2,11 @@
 - name: Configure Firewall
   hosts: ubuntu
   become: yes
+  collections:
+  - community.general
   tasks:
   - name: Setup firewall rule for SSH
-    community.general.ufw:
+    ufw:
       rule: limit
       name: OpenSSH
       state: enabled
