@@ -5,7 +5,7 @@
   become: yes
   tasks: 
     - name: Setup firewall rule for SSH
-      ufw:
+      community.general.ufw:
         rule: limit
         name: OpenSSH
         state: enabled
