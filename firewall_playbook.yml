@@ -3,7 +3,7 @@
   hosts: ubuntu
   become: yes
   collections:
-  - community.general
+  - name: community.general
   tasks:
   - name: Setup firewall rule for SSH
     ufw:
