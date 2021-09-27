@@ -1,9 +1,8 @@
-
 ---
 - name: Configure Firewall
   hosts: ubuntu
   become: yes
-  tasks: 
+  tasks:
   - name: Setup firewall rule for SSH
     community.general.ufw:
       rule: limit
