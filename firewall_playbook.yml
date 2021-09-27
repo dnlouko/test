@@ -1,7 +1,7 @@
 
 ---
 - name: Configure Firewall
-  hosts: localhost
+  hosts: ubuntu
   become: yes
   tasks: 
     - name: Setup firewall rule for SSH
