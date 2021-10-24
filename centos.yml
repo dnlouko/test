@@ -1,0 +1,7 @@
+---
+- name: Centos Playbook
+  tasks:
+  - name: debug test
+    debug:
+      msg: "Funcionou ?"
+...
