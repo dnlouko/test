@@ -1,0 +1,14 @@
+---
+- name: Playbook de teste AWX
+  hosts: ubuntu
+  become: yes
+  tasks:
+  - name: install package {{ pacotinho }}
+    apt:
+      name: "{{ pacotinho }}"
+      state: latest
+  - name: Update all packages to their latest version
+    apt:
+      name: "*"
+      state: latest
+...
